@@ -1,0 +1,2 @@
+### Day 1 
+Easy going. Worked with ChatGPT to get a scaffold I was happy with based on my requirements. Refreshed on C++ I/O, don't remember using sstream in school but it's pretty neat. Didn't consider how landing on 0 would affect the hits for part 2 when turning left. Caught with the sample test and debugged with print statements. Planning on getting comfortable with the debugger again tomorrow.
