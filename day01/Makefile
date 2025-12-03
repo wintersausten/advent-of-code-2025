@@ -1,6 +1,6 @@
 # Compiler and flags
 CXX      := clang++
-CXXFLAGS := -std=c++20 -Wall -Wextra -Wpedantic -O2
+CXXFLAGS := -std=c++20 -Wall -Wextra -Wpedantic -Og -g
 
 BUILD_DIR := build
 SRCS      := solve.cpp
