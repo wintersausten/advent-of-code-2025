@@ -14,7 +14,7 @@ TEST_CASE("example from problem statement") {
   Result res = solve(in);
 
   CHECK(res.part1 == 1227775554);
-  CHECK(res.part2 == 0);
+  CHECK(res.part2 == 4174379265);
 }
 
 TEST_CASE("1") {
@@ -32,6 +32,7 @@ TEST_CASE("2") {
   Result res = solve(in);
 
   CHECK(res.part1 == 99);
+  CHECK(res.part2 == 210);
 }
 TEST_CASE("3") {
   std::string data = R"(998-1012)";
@@ -97,14 +98,3 @@ TEST_CASE("10") {
 
   CHECK(res.part1 == 77);
 }
-
-// TEST_CASE("example from sample1.txt") {
-//   std::ifstream in("inputs/sample1.txt");
-//   REQUIRE(!!in); // fail test if file is missing
-//
-//   Result res = solve(in);
-//
-//  // Fill in when you know expected outputs for sample1.txt
-//  // CHECK(res.part1 == ...);
-//  // CHECK(res.part2 == ...);
-// }

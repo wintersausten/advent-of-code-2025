@@ -34,8 +34,50 @@ long long repeat_number(long long n) {
   return std::stoll(s + s);
 }
 
-Result solve(std::istream &in) {
-  Result res{0, 0};
+long long solve2(std::istream &in) {
+  long long result{0};
+  std::vector<Range> ranges;
+
+  std::string line, token;
+
+  std::getline(in, line);
+  std::stringstream ss(line);
+  while (std::getline(ss, token, ',')) {
+    int dash = token.find('-');
+    long long a = std::stoll(token.substr(0, dash));
+    long long b = std::stoll(token.substr(dash + 1));
+
+    ranges.push_back({a, b});
+  }
+
+  for (const auto &r : ranges) {
+    for (long long i = r.start; i <= r.end; i++) {
+      std::string s = std::to_string(i);
+      int n = static_cast<int>(s.size());
+      for (int set_size = 1; set_size <= n / 2; set_size++) {
+        if (n % set_size != 0)
+          continue;
+        std::string set = s.substr(0, set_size);
+        bool is_repeating = true;
+        for (int j = set_size; j <= n - set_size; j += set_size) {
+          if (s.substr(j, set_size) != set) {
+            is_repeating = false;
+            break;
+          }
+        }
+        if (is_repeating) {
+          result += i;
+          break;
+        }
+      }
+    }
+  }
+
+  return result;
+}
+
+long long solve1(std::istream &in) {
+  long long result{0};
   std::vector<Range> ranges;
 
   std::string line, token;
@@ -69,7 +111,7 @@ Result solve(std::istream &in) {
       for (long long i = first_half_start; i <= first_half_end; i++) {
         long long test_id = repeat_number(i);
         if (r.start <= test_id && test_id <= r.end) {
-          res.part1 += test_id;
+          result += test_id;
         }
       }
 
@@ -77,5 +119,14 @@ Result solve(std::istream &in) {
     }
   }
 
+  return result;
+}
+
+Result solve(std::istream &in) {
+  Result res{0, 0};
+  res.part1 = solve1(in);
+  in.clear();
+  in.seekg(0);
+  res.part2 = solve2(in);
   return res;
 }
