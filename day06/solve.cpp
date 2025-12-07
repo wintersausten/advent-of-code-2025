@@ -93,7 +93,6 @@ long long solve2(std::istream &in) {
           ten_mult++;
         }
       }
-      std::cout << row_result << "\n";
       sub_result = op_func(sub_result, row_result);
     }
 
@@ -103,17 +102,6 @@ long long solve2(std::istream &in) {
 
   return result;
 }
-// while there is an operator found
-// start col = next op pos - 1 or end of line
-// end col = op pos
-// for col in start - end
-//   parse:
-//      col_val = 0, ten_mult = 0
-//      for last row - first row
-//        if row_val
-//          col_val += pow10(row_val, ten_mult)
-//          ten_mult += 1
-//
 
 Result solve(std::istream &in) {
   Result res{0, 0};
