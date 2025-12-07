@@ -1,0 +1,2 @@
+### Day 5
+Was about to go head and merge the intervals for part 1 before remembering my day 2 experience, and of course the easy way worked. Ended up needing to merge the intervals anyways for part 2 though. Started learning about lambdas in C++ and the C++20 ranges, really interesting. Seems like it opens up lots of expressive functional code like Python and JS offer but with more performance control.
